@@ -16,4 +16,8 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     --app-font-size-medium: 0.9em; 
     --app-font-size-small: 0.6em;
   }
+
+  .for-web-only {
+    display: none;
+  }
 }
