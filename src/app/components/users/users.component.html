@@ -1,1 +1,6 @@
-<p>users works!</p>
+
+<div *ngIf="users$ | async as users">
+  <div *ngFor="let user of users">
+    {{ user.name }} - {{ user.email }}
+  </div>
+</div>
