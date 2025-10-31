@@ -1,1 +1,9 @@
-<p>header works!</p>
+<mat-toolbar color="accent">
+  <a routerLink="/" class="site-title">
+    My Website
+  </a>
+
+  <span class="spacer"></span> 
+
+  <div class="current-datetime">{{ currentDateTime | date:'yyyy/MM/dd HH:mm:ss' }}</div>
+</mat-toolbar>

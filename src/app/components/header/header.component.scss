@@ -1,0 +1,13 @@
+.spacer {
+  flex: 1 1 auto; 
+}
+
+.site-title {
+    font-size: var(--app-font-size-medium);
+    font-weight: 500;
+}
+
+.current-datetime {
+    font-size: var(--app-font-size-small);
+    font-weight: 400;
+}

@@ -2,3 +2,18 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+:root {
+  --app-font-size-large: 1.5em;
+  --app-font-size-medium: 1.1em;
+  --app-font-size-small: 0.9em;
+}
+
+@media (max-width: 768px) {
+  :root {
+    --app-font-size-large: 1.2em;
+    --app-font-size-medium: 0.9em; 
+    --app-font-size-small: 0.6em;
+  }
+}
