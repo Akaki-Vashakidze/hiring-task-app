@@ -1,11 +1,18 @@
 .nav-and-content {
-    display: flex;
-    flex-direction: row;
+    display: grid;
+    grid-template-columns: auto 1fr;
 }
 
 .content-container {
+    padding: 20px 0px;
     max-width: 50%;
     position: relative;
     left: 50%;
     transform: translate(-50%,0);
+}
+
+@media (max-width: 768px) {
+    .content-container {
+        max-width: 80%;
+    }
 }

@@ -1,7 +1,91 @@
-table {
-  width: 100%;
+
+body {
+  font-family: 'Covered By Your Grace', cursive;
+  line-height: 1.25;
+}
+  
+mat-header-cell {
+font-size: var(--app-font-size-small)!important;
 }
 
-th.mat-header-cell, td.mat-cell {
-  padding: 8px 16px;
+mat-cell {
+font-size: var(--app-font-size-small)!important;
+}
+
+.users-list-header {
+    display: flex;
+    justify-content: center;
+}
+
+.action-button:hover {
+    background-color: #1976d2;
+    color: white;
+    transition: transform .18s ease, box-shadow .18s ease, background-color .18s ease;
+    transform: translateY(-3px) scale(1.03);
+    box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+    animation: pop .32s ease-out;
+
+    @keyframes pop {
+        0%   { transform: translateY(0) scale(1); }
+        60%  { transform: translateY(-3px) scale(1.03); }
+        100% { transform: translateY(-2px) scale(1.02); }
+    }
+}
+
+@media screen and (max-width: 960px) {
+  mat-table {
+    border: 0;
+    vertical-align: middle
+  }
+
+  mat-table caption {
+    font-size: 1em;
+  }
+  
+  mat-table mat-header-cell {
+    border: 10px solid;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+  }
+  mat-table mat-row {
+    border-bottom: 5px solid #ddd;
+    display: block;
+  }
+  mat-table mat-cell {
+    border-bottom: 1px solid #ddd;
+    display: block;
+    font-size: 1em;
+    text-align: right;
+    font-weight: bold;
+    height:30px;
+    margin-bottom: 4%;
+  }
+  mat-table mat-cell:before {
+    content: attr(data-label);
+    float: left;
+    text-transform: uppercase;
+    font-weight: normal;
+    
+    font-size: .85em;
+  }
+  mat-table mat-cell:last-child {
+    border-bottom: 0;
+  }
+    mat-table mat-cell:first-child {
+    margin-top: 4%;
+  }
+
+  .mdc-data-table__row:last-child>.mat-mdc-cell {
+    border-bottom: 1px solid #ddd;
+  } 
+}
+
+@media screen and (min-width: 961px) {
+    mat-row {
+        min-height: 60px;
+    }
 }
