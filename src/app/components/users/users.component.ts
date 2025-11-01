@@ -10,6 +10,7 @@ import { MatPaginator, MatPaginatorModule } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { Router } from '@angular/router';
 
 @Component({
   standalone: true,
@@ -30,7 +31,7 @@ export class UsersComponent {
   };
   @ViewChild(MatPaginator) paginator!: MatPaginator;
   @ViewChild(MatSort) sort!: MatSort;
-  constructor(private _sharedService: SharedService) {
+  constructor(private _sharedService: SharedService, public _router:Router) {
     this._sharedService.getUsers().subscribe(users => {
       this.dataSource = new MatTableDataSource(users);
       this.dataSource.paginator = this.paginator;
@@ -40,6 +41,7 @@ export class UsersComponent {
 
   viewPosts(user: User) {
     console.log(user)
+    this._router.navigate(['/posts/' + user.id])
   }
 
   applyFilter(event: Event) {

@@ -1,0 +1,15 @@
+.posts-container {
+    .post-card {
+        margin: 20px 0px;
+        color: #fff;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    mat-card-actions {
+        display: flex;
+        justify-content: right;
+    }
+}
