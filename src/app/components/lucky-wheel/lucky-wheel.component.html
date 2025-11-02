@@ -1,0 +1,19 @@
+<div class="wheel-container">
+  <div class="wheel-wrapper">
+    <img class="wheel-arrow" src="assets/imgs/40168.svg" width="20" />
+
+    <div class="wheel" [@spin]="{ value: state, params: { rotation: rotation } }">
+      <div
+        class="segment"
+        *ngFor="let num of numbers; let i = index"
+        [style.transform]="'rotate(' + (i * 36) + 'deg)'"
+      >
+        <span>{{ num }}</span>
+      </div>
+    </div>
+  </div>
+
+  <input *ngIf="action == 'spin'" type="text" placeholder="Lucky Number" [(ngModel)]="luckyNumber" />
+  <button *ngIf="action == 'spin'" (click)="spin()">Spin</button>
+  <button *ngIf="action == 'refresh'" (click)="refresh()">Refresh</button>
+</div>
