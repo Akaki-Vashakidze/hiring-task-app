@@ -11,16 +11,17 @@ import { MatSort } from '@angular/material/sort';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { Router } from '@angular/router';
+import { MatMenuModule } from '@angular/material/menu';
 
 @Component({
   standalone: true,
   selector: 'app-users',
   templateUrl: './users.component.html',
   styleUrls: ['./users.component.scss'],
-  imports: [CommonModule, MatTableModule, MatIconModule, MatButtonModule, MatPaginatorModule, MatInputModule, MatFormFieldModule],
+  imports: [CommonModule, MatTableModule, MatIconModule, MatMenuModule, MatButtonModule, MatPaginatorModule, MatInputModule, MatFormFieldModule],
 })
 export class UsersComponent {
-  displayedColumns = ['name', 'username', 'phone', 'email' , 'company', 'posts'];
+  displayedColumns = ['name', 'username', 'phone', 'email' , 'company', 'actions'];
   dataSource!: MatTableDataSource<User>;
   name = 'Angular 5';
   options = {
@@ -40,8 +41,11 @@ export class UsersComponent {
   }
 
   viewPosts(user: User) {
-    console.log(user)
     this._router.navigate(['/posts/' + user.id])
+  }
+
+  viewTodos(user: User) {
+    this._router.navigate(['/todos/' + user.id])
   }
 
   applyFilter(event: Event) {

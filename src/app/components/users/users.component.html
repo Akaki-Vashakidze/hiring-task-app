@@ -1,52 +1,64 @@
 <div class="users-list-header" fxLayout="row">
-  <mat-form-field>
-    <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
-  </mat-form-field>
+    <mat-form-field>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
+    </mat-form-field>
 </div>
 
 <div class="users-list-container">
 
-  <mat-table [dataSource]="dataSource" matSort>
+    <mat-table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="name">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> name </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="name">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Name </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="name"> {{row.name}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="username">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> username </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="username"> {{row.username}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="username">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Username </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="username"> {{row.username}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="phone">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> phone </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="phone"> {{row.phone}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="phone">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Phone </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="phone"> {{row.phone}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="email">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> email </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="email">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Email </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="email"> {{row.email}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="company">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> company </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="company"> {{row.company.name}} </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="company">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Company </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="company"> {{row.company.name}} </mat-cell>
+        </ng-container>
 
-    <ng-container matColumnDef="posts">
-      <mat-header-cell *matHeaderCellDef mat-sort-header> posts </mat-header-cell>
-      <mat-cell *matCellDef="let row" data-label="posts">
-        <button mat-icon-button color="primary" class="action-button" (click)="viewPosts(row)">
-          <mat-icon>launch</mat-icon>
-        </button>
-      </mat-cell>
-    </ng-container>
+        <ng-container matColumnDef="actions">
+            <mat-header-cell *matHeaderCellDef mat-sort-header> Actions </mat-header-cell>
+            <mat-cell *matCellDef="let row" data-label="actions">
+                <button class="action-button" mat-button [matMenuTriggerFor]="menu">
+                    <mat-icon>more_vert</mat-icon>
+                </button>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
-    <mat-row *matRowDef="let row; columns: displayedColumns;">
-    </mat-row>
-  </mat-table>
+                <mat-menu #menu="matMenu">
+                    <button mat-menu-item (click)="viewPosts(row)">
+                        <mat-icon>launch</mat-icon>
+                        <span>Posts</span>
+                    </button>
 
-  <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
+                    <button mat-menu-item (click)="viewTodos(row)">
+                        <mat-icon>list</mat-icon>
+                        <span>Todos</span>
+                    </button>
+
+                </mat-menu>
+            </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns;">
+        </mat-row>
+    </mat-table>
+
+    <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
-

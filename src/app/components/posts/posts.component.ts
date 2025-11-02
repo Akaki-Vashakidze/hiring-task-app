@@ -12,7 +12,7 @@ import { PostDetailsPopupComponent } from '../post-details-popup/post-details-po
 @Component({
   selector: 'app-posts',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatButtonModule, MatDialogModule, PostDetailsPopupComponent],
+  imports: [CommonModule, MatCardModule, MatButtonModule, MatDialogModule],
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.scss']
 })
@@ -27,8 +27,11 @@ export class PostsComponent implements OnInit, OnDestroy {
     this.routeSub = this.route.paramMap.subscribe(params => {
       this.userId = params.get('userId')!;
       this._sharedService.getAllPosts().subscribe(posts => {
-        this.userPosts = posts.filter(item => item.userId == JSON.parse(this.userId))
-        console.log(this.userPosts)
+        if(this.userId) {
+          this.userPosts = posts.filter(item => item.userId == JSON.parse(this.userId))
+        } else {
+          this.userPosts = posts
+        }
       });
       console.log('User ID:', this.userId);
     });

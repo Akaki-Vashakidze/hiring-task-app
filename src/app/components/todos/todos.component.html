@@ -1,0 +1,14 @@
+<div class="todos-container">
+  <h2>User {{ userId }}'s Todos</h2>
+  <div class="todos-content">
+    <mat-card
+      *ngFor="let todo of userTodos; let i = index"
+      class="todo-card"
+      [ngClass]="{ 'completed-todo': todo.completed }"
+    >
+      <mat-card-content>
+        <p>{{i + 1}}. {{ todo.title }}</p>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

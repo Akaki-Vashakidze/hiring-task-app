@@ -1,0 +1,22 @@
+.todos-container {
+    .todo-card {
+        margin: 20px 0px;
+        color: #fff;
+        border-left: 6px solid #050505;
+    }
+
+    h2 {
+        text-align: center;
+    }
+
+    mat-card-actions {
+        display: flex;
+        justify-content: right;
+    }
+}
+
+.completed-todo {
+  background-color: #c8f7c5; 
+  border-left: 6px solid #4caf50 !important; 
+  color: black!important;
+}
