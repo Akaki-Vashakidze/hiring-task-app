@@ -10,5 +10,9 @@ import { RouterLink } from "@angular/router";
   styleUrl: './navigation.component.scss'
 })
 export class NavigationComponent {
-
+  menuItems = [
+    { name: 'Users', icon: 'people', route: '/users' },
+    { name: 'Posts', icon: 'article', route: '/posts' },
+    { name: 'Promotions', icon: 'local_offer', route: '/promotions' }
+  ];
 }
