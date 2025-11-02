@@ -5,13 +5,14 @@ import { TodosComponent } from './components/todos/todos.component';
 import { PromotionsComponent } from './components/promotions/promotions.component';
 
 export const routes: Routes = [
+    { path: '', redirectTo: 'promotions', pathMatch: 'full' },
     {
-    path: 'posts',
-    title: 'Posts',
-    children: [
-        { path: '', component: PostsComponent },
-        { path: ':userId', component: PostsComponent }
-    ]
+        path: 'posts',
+        title: 'Posts',
+        children: [
+            { path: '', component: PostsComponent },
+            { path: ':userId', component: PostsComponent }
+        ]
     },
     {
         path: 'todos/:userId',
