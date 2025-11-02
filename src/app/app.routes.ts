@@ -4,9 +4,12 @@ import { UsersComponent } from './components/users/users.component';
 
 export const routes: Routes = [
     {
-        path: 'posts/:userId',
-        component: PostsComponent,
-        title: 'Posts'
+    path: 'posts',
+    title: 'Posts',
+    children: [
+        { path: '', component: PostsComponent },
+        { path: ':userId', component: PostsComponent }
+    ]
     },
     {
         path: 'users',
