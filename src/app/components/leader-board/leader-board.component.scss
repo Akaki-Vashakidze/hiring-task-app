@@ -1,0 +1,24 @@
+.leader-board_filter {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.leader-board_filter div{
+    background-color: var(--app-grey-light);
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.leader-board_entry, .leader-board_header {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+}
+
+.activeFilter {
+    color: red;
+}

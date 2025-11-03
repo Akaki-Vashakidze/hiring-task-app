@@ -1,0 +1,17 @@
+    <div class="leader-board-container">
+        <div class="leader-board_filter">
+            <div [ngClass]="{ 'activeFilter': activeFilter == item.viewValue }" *ngFor="let item of filterItems" (click)="onFilterItems(item)">
+                {{ item.value }}
+            </div>
+        </div>
+        <div class="leader-board_content">
+            <div class="leader-board_header">
+                <div class="leader-board_place">#</div>
+                <div class="leader-board_name">Name</div>
+            </div>
+            <div *ngFor="let entry of leaderboardDataFiltered; let i = index" class="leader-board_entry">
+                <div class="leader-board_place">{{ i + 1}}</div>
+                <div class="leader-board_name">{{ entry.loginName }}</div>
+            </div>
+        </div>
+    </div>
