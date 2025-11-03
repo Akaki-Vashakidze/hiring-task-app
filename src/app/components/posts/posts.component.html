@@ -1,10 +1,11 @@
+@if (userPosts.length > 0) {
 <div class="posts-container">
     @if(userId) {
-        <h2>User {{ userId }}'s Posts</h2>
+    <h2>User {{ userId }}'s Posts</h2>
     } @else {
-        <h2>All Users' Posts</h2>
+    <h2>All Users' Posts</h2>
     }
-    
+
 
     <div class="posts-content">
         <mat-card *ngFor="let post of userPosts" class="post-card">
@@ -22,3 +23,4 @@
         </mat-card>
     </div>
 </div>
+}
