@@ -1,5 +1,4 @@
 
-@if (dataSource) {
 <div class="users-list-header" fxLayout="row">
     <mat-form-field>
         <input matInput (keyup)="applyFilter($event)" placeholder="Filter">
@@ -64,4 +63,3 @@
 
     <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]"></mat-paginator>
 </div>
-}
