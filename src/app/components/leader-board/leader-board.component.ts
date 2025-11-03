@@ -2,11 +2,10 @@ import { Component } from '@angular/core';
 import { LeaderBoardObj } from '../../interfaces/lieaderBoardObj';
 import { Week } from '../../enums/week';
 import { CommonModule } from '@angular/common';
-import { CdkAutofill } from "@angular/cdk/text-field";
 
 @Component({
   selector: 'app-leader-board',
-  imports: [CommonModule, CdkAutofill],
+  imports: [CommonModule],
   templateUrl: './leader-board.component.html',
   styleUrl: './leader-board.component.scss'
 })
